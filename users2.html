@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div class="user">
+ {% for user in user_list %}
+              <div class="user">
+                <img src="{{ user.imageUrl }}" alt="{{ user.name }}" class="user-image" />
+                <h4 class="user-name">{{ user.name }}</h4>
+                {% if user.isActive %}
+                  <span class="user-active-flag">Active</span>
+                {% else %}
+                  <span class="user-active-flag">Inactive</span>
+                {% endif %}
+    </div>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>System users</title>
+  </head>
+  <body>
+    <h1>System users</h1>
+    <form action="/users" method="get">
+      <input type="radio" id="all-users" name="filter" value="all" {% if filter=='all' %}checked{% endif %}/>
+      <label for="all-users">All users</label>
+      <input type="radio" id="active-users" name="filter" value="active" {% if filter=='active' %}checked{% endif %}  />
+      <label for="active-users">Active users</label>
+      <input type="radio" id="inactive-users" name="filter" value="inactive" {% if filter=='inactive' %}checked{% endif %} />
+      <label for="inactive-users">Inactive users</label>
+      <button type="submit">Update users</button>
+    </form>
+       <section class="users">
+      <!-- users will appear here -->
+
+         {% for user in user_list %}
+              <div class="user">
+                <img src="{{ user.imageUrl }}" alt="{{ user.name }}" class="user-image" />
+                <h4 class="user-name">{{ user.name }}</h4>
+                {% if user.active %}
+                  <span class="user-active-flag">Active</span>
+                {% else %}
+                  <span class="user-active-flag">Inactive</span>
+                {% endif %}
+              </div>
+         {% endfor %}
+
+
+
+    </section>
+  </body>
+</html>
